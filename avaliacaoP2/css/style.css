@@ -1,0 +1,30 @@
+* {
+    font-family: "Poppins", sans-serif;;
+    /* bordas auxiliares (apenas para auxiliar do desenvolvimento) */
+    /* border: 1px dashed rgb(167, 154, 154); */
+}
+
+.bg-fabi-1 {
+    background-color: #121212;
+}   
+.bg-fabi-2 {
+    background-color: #252525;
+}
+.btn-warning {
+    background-color: #FAC928;
+}
+.text-mustard {
+    color: #FAC928;
+}
+
+.caixa-login {
+    max-width: 500px;
+}
+
+@media (min-width: 992px) {
+    .bg-hero {
+        background: linear-gradient( 65deg, #121212, #121212, #121212, #121212, #121212d0, #1212123d), url("../images/luffy_wanted.jpg") repeat right center;
+        background-size: auto;
+        background-attachment: fixed;
+    }
+}
