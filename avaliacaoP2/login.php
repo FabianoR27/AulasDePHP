@@ -4,7 +4,7 @@ require 'usuarios.php';
 require 'vendor/autoload.php'; // autoload do Composer
 
 use PHPMailer\PHPMailer\PHPMailer; // importa a classe PHPMailer
-use PHPMailer\PHPMailer\Exception; // importa a classe Exception
+// use PHPMailer\PHPMailer\Exception; // importa a classe Exception
 
 $erro = '';
 
@@ -30,46 +30,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // data e hora atual
         date_default_timezone_set('America/Sao_Paulo'); // Define o fuso horário (sempre antes de usar date())
         $data = date('d/m/Y H:i'); // Formata a data e hora atual
+        $email_destino = 'marcos.sousa12@fatec.sp.gov.br'; // envia para este email (pode ser alterado para o email do usuário se desejado)
+        $assunto = 'ALERTA DE LOGIN BEM-SUCEDIDO';
+        $mensagem = "
+            <h2>Confirmação de Login</h2>
+            <p>Olá, <strong>{$user}</strong>!</p>
+            <p>Um login foi realizado na sua conta em <strong>{$data}</strong>.</p>
+            <p>Se foi você, não é necessário fazer nada.</p>
+            <p>Se <strong>não</strong> reconhece este acesso, recomendamos alterar sua senha imediatamente.</p>
+            <br>
+            <p>Atenciosamente,<br>Sistema do Fabi.</p>
+        ";
 
-        $mensagemEmail = "
-                <h2>Confirmação de Login</h2>
-                <p>Olá, <strong>{$user}</strong>!</p>
-                <p>Um login foi realizado na sua conta em <strong>{$data}</strong>.</p>
-                <p>Se foi você, não é necessário fazer nada.</p>
-                <p>Se <strong>não</strong> reconhece este acesso, recomendamos alterar sua senha imediatamente.</p>
-                <br>
-                <p>Atenciosamente,<br>Sistema do Fabi.</p>
-            ";
+        // configoraões do servidor SMTP e envio do email nesse include separado
+        include 'components/mailerConfig.php';
 
-        try {
-            // Configurações do servidor SMTP
-            $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com'; // servidor SMTP do Gmail
-            $mail->Port = 465; // porta SMTP do Gmail (SSL)
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // habilita a criptografia TLS ou SSL
-            $mail->SMTPAuth = true;
-            $mail->Username = 'fabianor27@gmail.com'; // endereço de email do gmail
-            $mail->Password = 'mlud vapk rolh ajtc'; // senha de app do gmail
-
-            // Configurações do email
-            $mail->setFrom('fabianor27@gmail.com', 'NO-REPLY - Sistema do Fabiano'); // remetente
-            $mail->addAddress($email); // destinatário
-            $mail->Subject = "ALERTA DE LOGIN BEM-SUCEDIDO"; // assunto
-
-            // CORPO DO EMAIL COM INFORMAÇÕES DE LOGIN
-            $mail->Body = $mensagemEmail;
-            $mail->isHTML(true); // define o formato do email como HTML
-            $mail->AltBody = nl2br($mensagemEmail); // corpo do email em texto puro para clientes que não suportam HTML
-            $mail->CharSet = 'UTF-8'; // define o charset para UTF-8
-
-            $mail->send(); // envia o email
-        } catch (Exception $e) {
-            echo "Erro ao configurar o servidor SMTP: {$mail->ErrorInfo}";
-        }
-
+        // redireciona para a página home após o login bem-sucedido
         header('Location: home.php');
         exit();
     } else {
+
         // Credenciais inválidas
         $erro = 'Usuário ou senha inválidos.';
     }

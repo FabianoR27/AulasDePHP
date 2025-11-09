@@ -27,7 +27,11 @@ Na tela de login, o usuário deve preencher os seguintes campos obrigatórios:
 
 ### 🔐 Credenciais de acesso padrão
 - **E-mail:** `marcos.sousa12@fatec.sp.gov.br` (tanto para login, quanto para recuperação de senha)  
-- **Senha:** `Fatec2025SI`
+- **Senha:** `Fatec2025SI`  
+
+Outras credenciais válidas:
+- **E-mail:** `teste@teste`, `admin@admin`
+- **Senha:** `teste`, `admin`
 
 ---
 
