@@ -43,7 +43,7 @@ Na tela de login, o usuário deve preencher os seguintes campos obrigatórios:
 ## 🧩 Estrutura do Projeto
 
 ```
-📁 projeto-login/
+📁 avaliacaoP2/
 │
 ├── components/              # Componentes reutilizáveis (HTML/PHP)
 ├── css/                     # Arquivos de estilo
