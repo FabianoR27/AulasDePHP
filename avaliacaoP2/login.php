@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <p>Atenciosamente,<br>Sistema do Fabi.</p>
         ";
 
-        // configoraões do servidor SMTP e envio do email nesse include separado
+        // configurações do servidor SMTP e envio do email nesse include separado
         include 'components/mailerConfig.php';
 
         // redireciona para a página home após o login bem-sucedido
@@ -86,7 +86,7 @@ include 'components/header.php'
 
                 <div class="py-3">
                     <button id="btnEntrar" class="btn btn-warning w-100 mb-3 fw-semibold shadow" type="submit"><i class="bi bi-door-open-fill"></i> Entrar</button>
-                    <a href="forget_password.php" id="btnEsqueciSenha" class="btn text-light border-warning w-100 mb-3 shadow">Esqueci minha senha</a>
+                    <a href="password_recovery.php" id="btnEsqueciSenha" class="btn text-light border-warning w-100 mb-3 shadow">Esqueci minha senha</a>
                 </div>
 
                 <small class="fw-light"><span class="text-danger">*</span> Somente o campo usuário pode ser qualquer nome.</small>

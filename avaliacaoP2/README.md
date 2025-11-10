@@ -60,7 +60,7 @@ Outras credenciais válidas:
 │
 ├── login.php                # Página de Login
 ├── home.php                 # Página Restrita (simulação de acesso autorizado)
-├── forget_password.php      # Página de Recuperação de Senha
+├── password_recovery.php      # Página de Recuperação de Senha
 ├── usuarios.php             # Usuários e senhas mockadas
 │
 └── README.md

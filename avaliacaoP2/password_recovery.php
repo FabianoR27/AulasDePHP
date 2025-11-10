@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $mail = new PHPMailer(true); // cria uma nova instância do PHPMailer
 
-        // configoraões do servidor SMTP e envio do email nesse include
+        // configurações do servidor SMTP e envio do email nesse include
         include 'components/mailerConfig.php';
     } else {
 
