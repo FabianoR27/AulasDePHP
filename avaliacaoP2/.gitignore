@@ -1,0 +1,20 @@
+# Ignorar dependências do Composer
+/vendor/
+
+# Ignorar arquivos de ambiente e configurações locais
+.env
+.env.*
+
+# Ignorar caches e logs
+*.log
+*.cache
+*.tmp
+*.bak
+
+# Ignorar pastas de IDEs
+.vscode/
+.idea/
+
+# Ignorar arquivos de sistema
+.DS_Store
+Thumbs.db
